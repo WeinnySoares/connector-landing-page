@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>connector | we do more with less — Tecnologia para Comércios Locais</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --purple-main: #5313B8;
+      --purple-dark: #2B0768;
+      --purple-deep: #150433;
+      --purple-light: #F3ECFF;
+      --purple-accent: #8B46FF;
+      --surface-white: #FFFFFF;
+      --surface-gray: #F8F7FC;
+      --text-dark: #140A26;
+      --text-muted: #5A526B;
+      --danger: #E11D48;
+      --success: #10B981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background-color: var(--surface-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER / NAVBAR */
+    header {
+      background-color: var(--purple-main);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+
+    .brand-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .brand-slogan {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      opacity: 0.9;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.88);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .btn-nav {
+      background-color: #FFFFFF;
+      color: var(--purple-main) !important;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 700 !important;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(155deg, var(--purple-main) 0%, var(--purple-dark) 100%);
+      color: #FFFFFF;
+      padding: 88px 0 96px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.88);
+      max-width: 580px;
+      margin-bottom: 36px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: #FFFFFF;
+      color: var(--purple-main);
+      padding: 16px 28px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 16px 28px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .hero-card-visual {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 32px;
+      backdrop-filter: blur(10px);
+    }
+
+    .visual-metric {
+      background: #FFFFFF;
+      color: var(--text-dark);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .visual-metric:last-child {
+      margin-bottom: 0;
+    }
+
+    .visual-metric-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--purple-main);
+      letter-spacing: 0.04em;
+    }
+
+    .visual-metric-value {
+      font-size: 26px;
+      font-weight: 800;
+      margin: 4px 0;
+    }
+
+    .visual-metric-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* SEÇÃO 2: REALIDADE E ESTATÍSTICAS */
+    .stats-section {
+      padding: 96px 0;
+      background-color: var(--surface-gray);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 56px;
+    }
+
+    .section-tag {
+      color: var(--purple-main);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 17px;
+      color: var(--text-muted);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .stat-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid #E7E2F2;
+      box-shadow: 0 4px 20px rgba(20, 10, 38, 0.04);
+    }
+
+    .stat-number {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--danger);
+      line-height: 1;
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .stat-card.purple .stat-number {
+      color: var(--purple-main);
+    }
+
+    .stat-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .stat-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* CHART CARD */
+    .chart-box {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid #E7E2F2;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .chart-copy h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .chart-copy p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .alert-banner {
+      background: #FFF1F2;
+      border-left: 4px solid var(--danger);
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #9F1239;
+    }
+
+    .bar-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .bar-label-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 18px;
+      background: #EDE9F7;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill-danger {
+      width: 78%;
+      height: 100%;
+      background: var(--danger);
+      border-radius: 999px;
+    }
+
+    .bar-fill-warning {
+      width: 52%;
+      height: 100%;
+      background: #F59E0B;
+      border-radius: 999px;
+    }
+
+    .bar-fill-success {
+      width: 19%;
+      height: 100%;
+      background: var(--purple-main);
+      border-radius: 999px;
+    }
+
+    /* SEÇÃO 3: NIVELANDO O JOGO */
+    .level-section {
+      padding: 96px 0;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .comp-card {
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .comp-card.old {
+      background: #F9F8FC;
+      border: 1px solid #E5E0F0;
+    }
+
+    .comp-card.new {
+      background: var(--purple-deep);
+      color: #FFFFFF;
+      box-shadow: 0 20px 40px rgba(83, 19, 184, 0.18);
+    }
+
+    .comp-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .comp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .comp-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+    }
+
+    .icon-x {
+      color: var(--danger);
+      font-weight: 800;
+    }
+
+    .icon-check {
+      color: #A78BFA;
+      font-weight: 800;
+    }
+
+    /* SEÇÃO 4: SOLUÇÕES */
+    .solutions-section {
+      padding: 96px 0;
+      background-color: var(--purple-light);
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .solution-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      padding: 32px;
+      border: 1px solid rgba(83, 19, 184, 0.12);
+    }
+
+    .sol-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--purple-main);
+      color: #FFFFFF;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .solution-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .solution-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* CTA FINAL */
+    .cta-section {
+      padding: 96px 0;
+      background: var(--purple-main);
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 38px;
+      font-weight: 800;
+      max-width: 720px;
+      margin: 0 auto 16px;
+      line-height: 1.15;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--purple-deep);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 48px 0;
+      font-size: 14px;
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-logo">
+        <div class="brand-text-group">
+          <span class="brand-name">connector</span>
+          <span class="brand-slogan">we do more with less</span>
+        </div>
+        <!-- Logo SVG Oficial (Chaves com pixels flutuantes) -->
+        <svg width="46" height="46" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M36 18C24 18 22 25 22 37V48C22 55 18 59 12 60C18 61 22 65 22 72V83C22 95 24 102 36 102" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M84 18C96 18 98 25 98 37V48C98 55 102 59 108 60C102 61 98 65 98 72V83C98 95 96 102 84 102" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="44" y="34" width="12" height="12" fill="#FFFFFF"/>
+          <rect x="64" y="28" width="8" height="8" fill="#FFFFFF"/>
+          <rect x="52" y="54" width="14" height="14" fill="#FFFFFF"/>
+          <rect x="38" y="64" width="8" height="8" fill="#FFFFFF"/>
+          <rect x="68" y="48" width="9" height="9" fill="#FFFFFF"/>
+          <rect x="48" y="76" width="11" height="11" fill="#FFFFFF"/>
+          <rect x="66" y="72" width="12" height="12" fill="#FFFFFF"/>
+          <rect x="58" y="92" width="7" height="7" fill="#FFFFFF"/>
+          <rect x="40" y="22" width="6" height="6" fill="#FFFFFF"/>
+        </svg>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#estatisticas">Por que Digitalizar?</a>
+        <a href="#vantagem">Nivelando o Jogo</a>
+        <a href="#solucoes">Sites &amp; Apps</a>
+        <a href="#contato" class="btn-nav">Diagnóstico Gratuito</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge-pill">⚡ Tecnologia estratégica para micro e pequenos negócios</div>
+        <h1>As grandes redes usam tecnologia para dominar. Agora você também vai.</h1>
+        <p>
+          Na <strong>connector</strong>, criamos sites de alta conversão e aplicativos próprios para comércios locais. Eliminamos a desvantagem tecnológica para você vender mais, fidelizar clientes e competir de igual para igual — fazendo muito mais com menos.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contato" class="btn-primary">Quero blindar meu comércio</a>
+          <a href="#estatisticas" class="btn-secondary">Ver dados de mercado</a>
+        </div>
+      </div>
+
+      <div class="hero-card-visual">
+        <div class="visual-metric">
+          <div class="visual-metric-label">Filosofia connector</div>
+          <div class="visual-metric-value">We do more with less</div>
+          <div class="visual-metric-desc">Infraestrutura digital enxuta, sem mensalidades abusivas e focada em retorno financeiro real.</div>
+        </div>
+        <div class="visual-metric">
+          <div class="visual-metric-label">Impacto Direto</div>
+          <div class="visual-metric-value">+3,4x mais retenção</div>
+          <div class="visual-metric-desc">Comércios com canal digital próprio reduzem dependência de marketplaces e aumentam margem líquida.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTATÍSTICAS E ALERTA DE SOBREVIVÊNCIA -->
+  <section id="estatisticas" class="stats-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">O Alerta dos Números</span>
+        <h2>Empresas sem estrutura tecnológica mínima estão com os dias contados</h2>
+        <p>
+          O comportamento do consumidor mudou definitivamente. Ignorar a presença digital estruturada não é apenas deixar de crescer — é acelerar o encerramento das atividades a médio prazo.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">68%</div>
+          <div class="stat-title">Fecham em até 5 anos</div>
+          <div class="stat-desc">Das micro e pequenas empresas que encerram as atividades precocemente operavam com baixa ou nenhuma digitalização de vendas e gestão (Sebrae / IBGE).</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">82%</div>
+          <div class="stat-title">Pesquisam antes de comprar</div>
+          <div class="stat-desc">Dos consumidores locais buscam no Google ou no celular antes de visitar uma loja física. Quem não tem site profissional simplesmente não existe para esse cliente.</div>
+        </div>
+
+        <div class="stat-card purple">
+          <div class="stat-number">2,7x</div>
+          <div class="stat-title">Maior taxa de sobrevivência</div>
+          <div class="stat-desc">Pequenos negócios que adotam canais próprios (site + app de pedidos/agendamento) crescem quase três vezes mais rápido que concorrentes analógicos.</div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-copy">
+          <h3>Risco de Fechamento a Médio Prazo (3 a 5 anos) por Nível Tecnológico</h3>
+          <p>
+            Depender exclusivamente de movimento de calçada ou de algoritmos de redes sociais coloca o caixa do negócio em risco constante diante das grandes redes digitalizadas.
+          </p>
+          <div class="alert-banner">
+            ⚠️ Sem site próprio, automação básica ou aplicativo, o pequeno comércio perde até 60% da recorrência dos clientes do próprio bairro.
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label-top">
+              <span>Nenhuma tecnologia (apenas porta aberta / caderno)</span>
+              <span style="color: #E11D48;">78% de risco de quebra</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill-danger"></div></div>
+          </div>
+
+          <div class="bar-row">
+            <div class="bar-label-top">
+              <span>Tecnologia passiva (apenas perfil em rede social)</span>
+              <span style="color: #D97706;">52% de risco de estagnação</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill-warning"></div></div>
+          </div>
+
+          <div class="bar-row">
+            <div class="bar-label-top">
+              <span>Digitalização ativa (Site + App próprio + Dados)</span>
+              <span style="color: #5313B8;">19% (Alta resiliência)</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill-success"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIVELANDO O JOGO -->
+  <section id="vantagem" class="level-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nossa Missão</span>
+        <h2>Diminuindo o abismo tecnológico entre você e as grandes corporações</h2>
+        <p>
+          Grandes empresas investem milhões em engenharia para capturar o seu cliente. A connector entrega a mesma inteligência tecnológica adaptada ao orçamento e à agilidade do comércio local.
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="comp-card old">
+          <h3>❌ Comércio Local Sem Tecnologia</h3>
+          <ul class="comp-list">
+            <li><span class="icon-x">✕</span> Invisível nas buscas locais do Google na hora da compra.</li>
+            <li><span class="icon-x">✕</span> Refém de taxas de 15% a 27% de aplicativos terceiros.</li>
+            <li><span class="icon-x">✕</span> Atendimento lento no WhatsApp e perda de pedidos em horários de pico.</li>
+            <li><span class="icon-x">✕</span> Zero histórico de compra ou base própria de clientes para reativar.</li>
+          </ul>
+        </div>
+
+        <div class="comp-card new">
+          <h3>⚡ Comércio Potencializado pela connector</h3>
+          <ul class="comp-list">
+            <li><span class="icon-check">✓</span> Site ultrarrápido otimizado para dominar as buscas do seu bairro.</li>
+            <li><span class="icon-check">✓</span> Aplicativo próprio com a sua marca, sem comissões por venda.</li>
+            <li><span class="icon-check">✓</span> Catálogo, agendamento e pedidos automatizados 24 horas por dia.</li>
+            <li><span class="icon-check">✓</span> Tecnologia enxuta: investimento acessível com retorno mensurável.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÕES -->
+  <section id="solucoes" class="solutions-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">O que construímos</span>
+        <h2>Ferramentas práticas para potencializar seu faturamento</h2>
+      </div>
+
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <div class="sol-icon">🌐</div>
+          <h3>Sites de Alta Conversão</h3>
+          <p>Páginas rápidas, responsivas e estruturadas para transformar visitantes do Google em clientes na sua loja ou no seu WhatsApp.</p>
+        </div>
+
+        <div class="solution-card">
+          <div class="sol-icon">📱</div>
+          <h3>Aplicativos Próprios (iOS &amp; Android)</h3>
+          <p>Seu comércio direto na tela inicial do celular do cliente. Notificações push, clube de fidelidade e pedidos sem intermediários.</p>
+        </div>
+
+        <div class="solution-card">
+          <div class="sol-icon">⚙️</div>
+          <h3>Automação &amp; Eficiência</h3>
+          <p>Integrações inteligentes de pagamento, catálogo digital e atendimento para sua equipe fazer mais com menos esforço operacional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="contato" class="cta-section">
+    <div class="container">
+      <h2>Não espere o mercado fechar as portas do seu negócio.</h2>
+      <p>
+        Agende uma conversa de 20 minutos com a connector. Mostramos exatamente onde você está perdendo clientes hoje e como colocar tecnologia de ponta no seu comércio.
+      </p>
+      <a href="https://wa.me/5511999999999" class="btn-primary">Solicitar Diagnóstico Tecnológico Gratuito</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-flex">
+      <div>
+        <strong style="color: #FFFFFF; font-size: 18px;">connector</strong> — <em>we do more with less</em>
+      </div>
+      <div>© 2026 connector Tecnologia para Negócios Locais. Todos os direitos reservados.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
